@@ -3,21 +3,18 @@
 int get_digits(std::string input)
 {
     std::string number;
-    size_t index = 0;
+    bool foundFirsDigit = false;
 
-    // Get first digit
     for (size_t i = 0; i < input.size(); i++) {
         if (std::isdigit(input[i])) {
-            number.push_back(input[i]);
-            index = i;
-            break;
+            if (!foundFirsDigit) {
+                number.push_back(input[i]);
+                foundFirsDigit = true;
+            }
+            
+            number[1] = input[i];
         }
     }
-
-    // Get second digit
-    for (size_t i = index; i < input.size(); i++)
-        if (std::isdigit(input[i]))
-            number[1] = input[i];
 
     return std::stoi(number);
 }
