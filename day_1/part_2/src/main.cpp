@@ -18,6 +18,8 @@ int main()
         sum = sum + number;
     }
 
+    file.close();
+
     std::cout << sum << std::endl;
 
     return 0;
